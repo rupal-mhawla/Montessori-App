@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="word_DetailActivity" type="id">word_DetailActivity</item>
+    <item name="action_letter" type="id">action_letter</item>
+</resources>

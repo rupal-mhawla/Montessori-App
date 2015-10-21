@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">"ABC"</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="home">Home</string>
+    <string name="letter">letter</string>
+    <string name="home_a">0</string>
+    <string name="home_b">1</string>
+    <string name="home_c">2</string>
+    <string name="home_d">3</string>
+    <string name="home_e">4</string>
+    <string name="home_f">5</string>
+    <string name="home_g">6</string>
+    <string name="home_h">7</string>
+    <string name="home_i">8</string>
+    <string name="home_j">9</string>
+    <string name="home_k">10</string>
+    <string name="home_l">11</string>
+    <string name="home_m">12</string>
+    <string name="home_n">13</string>
+    <string name="home_o">14</string>
+    <string name="home_p">15</string>
+    <string name="home_q">16</string>
+    <string name="home_r">17</string>
+    <string name="home_s">18</string>
+    <string name="home_t">19</string>
+    <string name="home_u">20</string>
+    <string name="home_v">21</string>
+    <string name="home_w">22</string>
+    <string name="home_x">23</string>
+    <string name="home_y">24</string>
+    <string name="home_z">25</string>
+
+
+
+
+
+
+</resources>

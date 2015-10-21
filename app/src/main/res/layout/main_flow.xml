@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00FFD801"
+    android:layout_gravity="bottom"
+    android:gravity="bottom"
+  >
+
+    <ImageButton
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@null"
+        android:src="@drawable/ic_action_prev"
+        android:scaleType="fitCenter"
+        android:id="@+id/prev_ImageButton"
+        android:layout_alignParentLeft="true"
+
+        />
+
+    <ImageButton
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_action_next"
+        android:background="@null"
+       android:scaleType="fitCenter"
+        android:id="@+id/next_ImageButton"
+        android:layout_alignParentRight="true"
+
+        />
+
+    <ImageButton
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_action_backward"
+        android:scaleType="fitCenter"
+        android:id="@+id/back_ImageButton"
+        android:background="@null"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone"
+        />
+
+    <ImageButton
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_action_forward"
+        android:scaleType="fitCenter"
+        android:id="@+id/forward_ImageButton"
+        android:background="@null"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        />
+
+
+</RelativeLayout>
