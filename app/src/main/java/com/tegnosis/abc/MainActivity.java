@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         backmusic = MediaPlayer.create(this,R.raw.background_score);
         backmusic.setLooping(true);
-        backmusic.setVolume(0.7f,0.7f);
+        backmusic.setVolume(0.5f,0.5f);
         backmusic.start();
 
         }
@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+
         if ((keyCode == KeyEvent.KEYCODE_BACK) || (keyCode == KeyEvent.KEYCODE_HOME)
                 || (keyCode == KeyEvent.KEYCODE_CALL))
             return false;
