@@ -101,5 +101,9 @@ public class DisplayMain extends MainActivity{
         return false;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.Home();
+    }
 
 }

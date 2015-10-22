@@ -220,5 +220,8 @@ public class DetailActivity extends MainActivity  {
         super.onResume();
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.Home();
+    }
 }

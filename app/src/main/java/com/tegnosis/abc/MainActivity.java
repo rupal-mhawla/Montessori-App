@@ -29,70 +29,24 @@ import java.lang.reflect.Field;
 public class MainActivity extends AppCompatActivity {
 
     MediaPlayer backmusic;
-   // BackgroundSound mBackgroundSound;
 
     int i = 0;
     int j = 0;
 
-   /** private boolean mIsBound = false;
-    private MusicService mServ;
-    private ServiceConnection Scon = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder binder) {
-            mServ = ((MusicService.ServiceBinder)binder).getService();
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-
-            mServ = null;
-        }
-    };
-
-    void doBindService(){
-        bindService(new Intent(this,MusicService.class),Scon,Context.BIND_AUTO_CREATE);
-        mIsBound = true;
-    }
-
-    void doUnbindService(){
-        if(mIsBound){
-            unbindService(Scon);
-            mIsBound = false;
-        }
-    }
-    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-       // getActionBar().setDisplayShowTitleEnabled(false);
 
-     //mBackgroundSound = new BackgroundSound();
-
-       // Intent music = new Intent();
-        //music.setClass(this,MusicService.class);
-        //startService(music);
 
         backmusic = MediaPlayer.create(this,R.raw.background_score);
         backmusic.setLooping(true);
-        backmusic.setVolume(0.5f,0.5f);
+        backmusic.setVolume(0.5f, 0.5f);
         backmusic.start();
 
         }
 
-   /** @Override
-    protected void onResume() {
-        super.onResume();
-        mBackgroundSound.execute((Void[]) null);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mBackgroundSound.cancel(true);
-    }
-*/
     public void MainClick(View view) {
 
 
@@ -103,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         String val = getResources().getString(id);
 
-       // Toast.makeText(this,"i = "+val,Toast.LENGTH_SHORT ).show();
+
 
         i = Integer.parseInt(val);
         j = i+i+i;
@@ -132,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void Home(View view) {
+    public void Home() {
         Toast.makeText(this,"Home selected ",Toast.LENGTH_SHORT ).show();
         finish();
         startActivity(new Intent(this, MainActivity.class));
@@ -161,27 +115,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if ((keyCode == KeyEvent.KEYCODE_BACK) || (keyCode == KeyEvent.KEYCODE_HOME)
-                || (keyCode == KeyEvent.KEYCODE_CALL))
-            return false;
-        else
-            return true;
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
-
-    /**
-
-    public class BackgroundSound extends AsyncTask<Void,Void,Void> {
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            backmusic = MediaPlayer.create(MainActivity.this,R.raw.background_score);
-            backmusic.setLooping(true);//set looping
-            backmusic.setVolume(50,50);
-            backmusic.start();
-            return null;
-        }
-    }
-     */
 }
