@@ -144,7 +144,7 @@ public class DetailActivity extends MainActivity  {
                             detailFlow.forward.performClick();
                         }
                         else{
-                            Toast.makeText(this,"You have reached end",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this,"You have reached the end",Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -156,7 +156,7 @@ public class DetailActivity extends MainActivity  {
                         if(detailFlow.back.getVisibility() == View.VISIBLE){
                             detailFlow.back.performClick();
                         }else{
-                            Toast.makeText(this,"You have reached start",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this,"You are at start",Toast.LENGTH_SHORT).show();
                         }
 
                     }else if(detailFlow.counter == 2 || detailFlow.counter == 3){
