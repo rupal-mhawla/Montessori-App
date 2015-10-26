@@ -17,7 +17,6 @@ import android.widget.Toast;
  */
 public class Word_Fragment extends Fragment implements Animation.AnimationListener {
 
-
     int i = 0;
     int k = 0;
     int [] w_ids =  new int[]{R.drawable.word_apple, R.drawable.word_airplane, R.drawable.word_ant,
@@ -59,24 +58,17 @@ public class Word_Fragment extends Fragment implements Animation.AnimationListen
     private ImageView detailNameImageView;
     private ImageView detailZoomImageView;
 
-
-
     Animation zoomin;
 
-
-    @Nullable
+   @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
         View view ;
-        view = inflater.inflate(R.layout.word_fragment,container,false);
-
+        view = inflater.inflate(R.layout.word_fragment, container, false);
 
         k = this.getArguments().getInt("index");
         i = this.getArguments().getInt("i");
-
-        //Toast.makeText(getActivity(), "id" + r_id, Toast.LENGTH_LONG).show();
 
         detailNameImageView = (ImageView)view.findViewById(R.id.detailNameImageView);
         detailZoomImageView = (ImageView)view.findViewById(R.id.detailZoomNameImageView);
@@ -84,14 +76,9 @@ public class Word_Fragment extends Fragment implements Animation.AnimationListen
         zoomin = AnimationUtils.loadAnimation(getActivity(),R.anim.zoom_in);
         zoomin.setAnimationListener(this);
 
-
-
-        detailNameImageView.setImageResource(w_ids[k]);
-
         detailZoomImageView.setImageResource(z_ids[i]);
 
         detailZoomImageView.startAnimation(zoomin);
-
 
         return view;
     }
@@ -104,7 +91,8 @@ public class Word_Fragment extends Fragment implements Animation.AnimationListen
     @Override
     public void onAnimationEnd(Animation animation) {
 
-
+        getActivity().overridePendingTransition(0,0);
+        detailNameImageView.setImageResource(w_ids[k]);
 
     }
 

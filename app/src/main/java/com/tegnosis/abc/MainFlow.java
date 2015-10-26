@@ -5,11 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
+
 
 /**
  * Created by Rupal on 6/8/2015.
@@ -38,29 +37,20 @@ public class MainFlow extends Fragment {
         back = (ImageButton)view.findViewById(R.id.back_ImageButton);
         forward = (ImageButton)view.findViewById(R.id.forward_ImageButton);
 
-
         prev.setVisibility(View.INVISIBLE);
         next.setVisibility(View.INVISIBLE);
         back.setVisibility(View.INVISIBLE);
         forward.setVisibility(View.INVISIBLE);
 
-
-
-            if(i == 0){
-                prev.setVisibility(View.INVISIBLE);
-                next.setVisibility(View.VISIBLE);
-            }else if (i < 25) {
-                prev.setVisibility(View.VISIBLE);
-                next.setVisibility(View.VISIBLE);
-            }else{
-                    prev.setVisibility(View.VISIBLE);
-                }
-
-
-
-
-
-
+        if(i == 0){
+            prev.setVisibility(View.INVISIBLE);
+            next.setVisibility(View.VISIBLE);
+        }else if (i < 25) {
+            prev.setVisibility(View.VISIBLE);
+            next.setVisibility(View.VISIBLE);
+        }else{
+            prev.setVisibility(View.VISIBLE);
+        }
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,9 +66,6 @@ public class MainFlow extends Fragment {
                     j = j - 3;
 
                 }
-
-
-
             }
         });
 
@@ -98,12 +85,8 @@ public class MainFlow extends Fragment {
             }
         });
 
-
-
         return view;
     }
-
-
 
 
     private void Navigate() {
@@ -115,15 +98,10 @@ public class MainFlow extends Fragment {
         if (count == 1){
             //slide in
             getActivity().overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
-
         }else{
             //slide out
            getActivity().overridePendingTransition(R.anim.rotate_in,R.anim.rotate_out);
         }
-
     }
-
-
-
 
 }

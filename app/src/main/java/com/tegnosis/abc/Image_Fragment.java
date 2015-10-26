@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 /**
  * Created by Rupal on 5/29/2015.
@@ -54,11 +53,7 @@ public class Image_Fragment  extends Fragment {
 
         int r_id = this.getArguments().getInt("index");
 
-
         detailImageView = (ImageView)view.findViewById(R.id.detail_ImageView);
-        //  Toast.makeText(getActivity(),"id"+r_id,Toast.LENGTH_LONG).show();
-
-
 
         detailImageView.setImageResource(ids[r_id]);
 

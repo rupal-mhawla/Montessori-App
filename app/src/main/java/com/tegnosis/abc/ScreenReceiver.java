@@ -21,7 +21,6 @@ public class ScreenReceiver extends BroadcastReceiver {
             wasScreenon = true;
             System.out.println("On inside Screen on inner ");
 
-
         }
     }
 }

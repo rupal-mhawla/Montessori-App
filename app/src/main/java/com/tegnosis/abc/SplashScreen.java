@@ -1,21 +1,18 @@
 package com.tegnosis.abc;
 
-import android.app.ActionBar;
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.View;
 
 /**
  * Created by Rupal on 7/9/2015.
  */
 public class SplashScreen extends AppCompatActivity {
 
-    int SPLASH_SCREEN_DELAY = 5000;
+    int SPLASH_SCREEN_DELAY = 3000;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,8 +22,6 @@ public class SplashScreen extends AppCompatActivity {
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 
         actionBar.hide();
-
-
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -39,6 +34,5 @@ public class SplashScreen extends AppCompatActivity {
                 finish();
             }
         }, SPLASH_SCREEN_DELAY);
-
     }
 }

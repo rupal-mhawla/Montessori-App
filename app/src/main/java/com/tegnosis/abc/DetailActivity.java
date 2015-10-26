@@ -2,12 +2,9 @@ package com.tegnosis.abc;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -28,6 +25,9 @@ public class DetailActivity extends MainActivity  {
 
     int button_num, counter;
 
+    private int longClickDuration = 200; //for long click to trigger after 0.2 second
+    private long then;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class DetailActivity extends MainActivity  {
         counter = intent.getExtras().getInt("counter");
 
 
-        //Toast.makeText(this, "On click executed"+button_num,Toast.LENGTH_LONG).show();
+
           FragmentManager detailFragmentManager = getFragmentManager();
           FragmentTransaction detailFragmentTransaction = detailFragmentManager.beginTransaction();
 
@@ -70,23 +70,15 @@ public class DetailActivity extends MainActivity  {
             detailFragmentTransaction.add(R.id.image_DetailActivity,word_fragment);
             detailFragmentTransaction.add(R.id.image_DetailActivity,detailFlow);
 
-
-
-
             detailFragmentTransaction.commit();
 
             AudioLyric(button_num);
-
-
-
     }
 
 
     private void AudioLyric(int button_num) {
 
-
         int rid = 0;
-
 
         int [] x = new int[]{R.raw.apple, R.raw.airplane,R.raw.ant,
                              R.raw.ball,R.raw.baby,R.raw.book,
@@ -121,11 +113,7 @@ public class DetailActivity extends MainActivity  {
 
         lyrics = MediaPlayer.create(this,rid);
 
-
-            lyrics.start();
-
-
-
+        lyrics.start();
 
     }
 
@@ -133,15 +121,20 @@ public class DetailActivity extends MainActivity  {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()){
             //When user touch the screen for first time
-
             case MotionEvent.ACTION_DOWN :{
                 x1 = event.getX();
-
+                then = System.currentTimeMillis();
                 break;
             }
 
             case MotionEvent.ACTION_UP:{
                 x2 = event.getX();
+
+                if ((System.currentTimeMillis()- then ) > longClickDuration ) {
+                    DetailActivity.this.finish();
+                    detailFlow.count = 2;
+                    detailFlow.NavigateDetail();
+                }
                 //for right to left sweep - new page
                 if(x1>x2){
                     if (detailFlow.counter == 1 || detailFlow.counter == 2){
@@ -166,36 +159,26 @@ public class DetailActivity extends MainActivity  {
                             Toast.makeText(this,"You have reached start",Toast.LENGTH_SHORT).show();
                         }
 
-
                     }else if(detailFlow.counter == 2 || detailFlow.counter == 3){
                         detailFlow.back.performClick();
                     }
 
                     break;
                 }
-
-
             }
             default:
                 break;
-
         }
-
 
         return false;
     }
 
 
-
     @Override
     public void Book(View view) {
-        Toast.makeText(this, "Book selected ", Toast.LENGTH_SHORT).show();
-
-
         Intent intent = new Intent(getApplicationContext(),DisplayMain.class);
         intent.putExtra("i",i);
         intent.putExtra("j", j);
-
 
         startActivity(intent);
         finish();
@@ -222,6 +205,12 @@ public class DetailActivity extends MainActivity  {
 
     @Override
     public void onBackPressed() {
-        super.Home();
+        Intent intent = new Intent(getApplicationContext(),DisplayMain.class);
+        intent.putExtra("i",i);
+        intent.putExtra("j", j);
+
+        startActivity(intent);
+        finish();
+
     }
 }

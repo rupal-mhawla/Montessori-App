@@ -8,9 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
-import java.util.zip.Inflater;
-
 /**
  * Created by Rupal on 5/28/2015.
  */
@@ -35,7 +32,6 @@ public class Letter_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
 
         i = this.getArguments().getInt("i");
         letter = ids[i];

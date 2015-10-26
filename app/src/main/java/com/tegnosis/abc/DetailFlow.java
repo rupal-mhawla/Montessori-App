@@ -67,14 +67,6 @@ public class DetailFlow  extends Fragment {
 
         }
 
-
-
-
-
-
-
-
-
         forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,10 +84,7 @@ public class DetailFlow  extends Fragment {
                 }else{
                     counter++;
                 }
-
-
                 NavigateDetail();
-
             }
         });
 
@@ -118,21 +107,20 @@ public class DetailFlow  extends Fragment {
                 button_id--;
 
                 NavigateDetail();
-
             }
         });
 
         return view;
     }
 
-    private void NavigateDetail() {
+    public void NavigateDetail() {
         Intent intent = new Intent(getActivity(),DetailActivity.class);
 
         intent.putExtra("button_id", button_id);
         intent.putExtra("i",i);
 
         intent.putExtra("counter",counter);
-        intent.putExtra("j",j);
+        intent.putExtra("j", j);
 
         getActivity().finish();
 
@@ -142,15 +130,14 @@ public class DetailFlow  extends Fragment {
             //slide in
             getActivity().overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
 
-        }else{
+        }else if (count == 0){
             //slide out
             getActivity().overridePendingTransition(R.anim.rotate_in,R.anim.rotate_out);
         }
+        else {
+            getActivity().overridePendingTransition(0,0);
+        }
+
     }
-
-
-
-
-
 
 }

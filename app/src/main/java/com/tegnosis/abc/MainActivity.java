@@ -1,55 +1,35 @@
 package com.tegnosis.abc;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.media.MediaPlayer;
-import android.os.AsyncTask;
-import android.os.IBinder;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Switch;
-import android.widget.Toast;
 
-import java.lang.reflect.Field;
-
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     MediaPlayer backmusic;
 
     int i = 0;
     int j = 0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
         backmusic = MediaPlayer.create(this,R.raw.background_score);
         backmusic.setLooping(true);
-        backmusic.setVolume(0.5f, 0.5f);
+        backmusic.setVolume(0.6f, 0.6f);
         backmusic.start();
 
         }
 
     public void MainClick(View view) {
-
-
 
         String button_click  = getResources().getResourceEntryName(view.getId());
 
@@ -57,15 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         String val = getResources().getString(id);
 
-
-
         i = Integer.parseInt(val);
         j = i+i+i;
 
-       Intent intent = new Intent(getApplicationContext(),DisplayMain.class);
+        Intent intent = new Intent(getApplicationContext(),DisplayMain.class);
         intent.putExtra("i",i);
         intent.putExtra("j", j);
-
 
         startActivity(intent);
         finish();
@@ -86,17 +63,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void Home() {
-        Toast.makeText(this,"Home selected ",Toast.LENGTH_SHORT ).show();
+    public void Home(View view) {
         finish();
         startActivity(new Intent(this, MainActivity.class));
 
     }
 
     public void Book(View view) {
-        Toast.makeText(this,"Book selected ",Toast.LENGTH_SHORT ).show();
-
-
         Intent intent = new Intent(getApplicationContext(),DisplayMain.class);
         intent.putExtra("i",i);
         intent.putExtra("j", j);
@@ -111,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         backmusic.release();
-        //finish();
+        finish();
     }
 
     @Override
